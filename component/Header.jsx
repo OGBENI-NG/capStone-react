@@ -5,8 +5,8 @@ export default function Header() {
     return (
         <>
             <header>
-                <Link to="/photos"><h1 className="logo">Pic some</h1></Link>
-                <Link to="/chart" className="chart"><i className="ri-shopping-cart-line ri-fw ri-2x"></i></Link> 
+                <Link to="/"><h2>Pic Some</h2></Link>
+                <Link to="/cart"><i className="ri-shopping-cart-line ri-fw ri-2x"></i></Link>
             </header>
             <Outlet />
         </>

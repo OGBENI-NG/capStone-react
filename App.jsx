@@ -2,17 +2,15 @@ import React from "react"
 import Header from "./component/Header"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Photos from "./pages/Photos"
-import Chart from "./pages/Chart"
+import Cart from "./pages/Cart"
 
 export default function App() {
     return (
       <BrowserRouter>
+        <Header />
         <Routes>
-          <Route path="/" element={<Header />}>
-            <Route path="photos" element={<Photos />} />
-            <Route path="chart" element={<Chart />} />
-            {/* <Route path="contact" element={<ContactPage />} /> */}
-          </Route>
+          <Route exact path="/" element={<Photos />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     )
