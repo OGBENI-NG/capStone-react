@@ -1,24 +1,18 @@
-import React, {useContext, useState, useEffect} from "react"
+import React from "react"
 import {Link, Outlet} from "react-router-dom"
-import { Context } from "../useContest"
+import useHover from "../hooks/useHover"
 
 export default function Header() {
-    const {cartItem} = useContext(Context)
-    const [countCartItem, setCountCartItem] = useState(0)
-    const cartIconClassName = cartItem.length > 0 ? 'ri-shopping-cart-fill' : 'ri-shopping-cart-line'
-
-    useEffect(() => {
-        setCountCartItem(cartItem.length)
-    }, [cartItem])
-
+    const {cartIcon, displayCountCartItem, countCartItem} = useHover()
+    
     return (
         <>
             <header>
                 <Link to="/"><h2 className="logo">Pic Some</h2></Link>
                 <div className="cartIcon-container">
                     <Link to="/cart">
-                        <i className={`${cartIconClassName} ri-fw ri-2x cart-icon`}></i>
-                        <span className="cart-counts" style={{display: cartItem.length === 0 ? 'none' : 'block'}}>{countCartItem}</span>
+                        <i className={`${cartIcon} ri-fw ri-2x cart-icon`}></i>
+                        <span className="cart-counts" style={displayCountCartItem}>{countCartItem}</span>
                     </Link>
                 </div>
             </header>

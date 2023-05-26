@@ -128,11 +128,12 @@ img.image-grid {
     position: absolute;
     top: -5px;
     right: -4px;
-    color: var(--pink);
+    color: var(--red);
     font-size: .75em;
-    background-color: var(--winterBlue);
+    background-color: var(--blue);
     padding: 5px;
     border-radius: 50%;
+    border: 1.2px solid var(--red);
 }
 
 header {

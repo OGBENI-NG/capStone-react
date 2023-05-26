@@ -1,11 +1,8 @@
-import React, {useState, useContext} from "react"
-import { Context } from "../useContest"
-import PropTypes from 'prop-types'
-
-
-export default function Images({className, img}) {
-    const { toggleIsFavorite, addToCart, removeFromCart, cartItem } = useContext(Context)
-    const [hovered, setHovered] = useState(false)
+import React from "react"
+import propTypes from 'prop-types'
+import useHover from "../hooks/useHover"
+function Images({className, img}) {
+    const {hovered, setHovered, toggleIsFavorite, addToCart, removeFromCart, cartItem} = useHover()
 
     function heartIcon() {
         if(img.isFavorite) {
@@ -43,12 +40,13 @@ export default function Images({className, img}) {
         </div>
     )
 
-    Images.PropTypes = {
-        className: PropTypes.string,
-        img: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            url: PropTypes.string.isRequired,
-            isFavorite: PropTypes.bool
-        })
-    }
 }
+Images.propTypes = {
+    className: propTypes.string,
+    img: propTypes.shape({
+        id: propTypes.string.isRequired,
+        url: propTypes.string.isRequired,
+        isFavorite: propTypes.bool
+    })
+}
+export default Images

@@ -13,7 +13,7 @@ function ContextProvider({children}) {
         .then(res => res.json())
         .then(data => setAllPhotos(data))
     }, [])
-    console.log(allPPhotos)
+   
 
     function toggleIsFavorite(id) {
         const photosArr = allPPhotos.map(photo => {
